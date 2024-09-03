@@ -2,17 +2,38 @@
 <html>
 <head>
     <title>Lista de Produtos</title>
+    <!-- Inclua o jQuery e o plugin de máscara -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 </head>
 <body>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>CPF/CNPJ</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
         <tbody>
             {% for cliente in clientes %}
                 <tr>
                     <td>{{ cliente.nome }}</td>
-                    <td>{{ cliente.cpfCnpj }}</td>
+                    <td class="cpf">{{ cliente.cpfCnpj }}</td>
                     <td>{{ cliente.tipo }}</td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+    <script>
+        $(document).ready(function(){
+            // Aplica a máscara a todos os elementos com a classe 'cpf'
+            $('.cpf').each(function() {
+                var cpfValue = $(this).text();
+                $(this).text(cpfValue);
+                $(this).mask('000.000.000-00'); // Aplica a máscara ao valor
+            });
+        });
+    </script>
 </body>
 </html>

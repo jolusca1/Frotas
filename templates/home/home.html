@@ -1,0 +1,150 @@
+<!-- importando conteudo base -->
+{% extends "layout.html" %}
+
+<!-- Title -->
+{% block title %}
+	<title>{{title}}</title>
+{% endblock title %}
+
+{% block styles %}
+	<link rel="stylesheet" href="static/css/home.css">
+{% endblock styles %}
+
+<!-- body --> 
+{% block content %}
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="flip-card">
+				<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<i class="material-icons center">groups</i>
+					</div>
+					<a href="/funcionarios" class="flip-card-back">
+						<div>
+							<h1>Funcionários</h1>	
+						</div>
+					</a>
+				</div>
+			</div>
+
+			&ensp;
+
+			<div class="flip-card">
+				<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<i class="material-icons center">business_center</i>
+					</div>
+					<a href="/departamentos" class="flip-card-back">
+						<div>
+							<h1>Departamentos</h1>	
+						</div>
+					</a>
+				</div>
+			</div>
+
+			&ensp;
+
+			<div class="flip-card">
+				<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<i class="material-icons center">directions_car</i>
+					</div>
+					<a href="/veiculos" class="flip-card-back">
+						<div>
+							<h1>Veículos</h1>	
+						</div>
+					</a>
+				</div>
+			</div>
+
+			&ensp;
+
+			<div class="flip-card">
+				<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<i class="material-icons center">airline_seat_recline_extra</i>
+					</div>
+					<a href="/motoristas" class="flip-card-back">
+						<div>
+							<h1>Motoristas</h1>	
+						</div>
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class="row">
+
+			<div class="flip-card">
+				<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<i class="material-icons center">engineering</i>
+					</div>
+					<a href="/manutencoes" class="flip-card-back">
+						<div>
+							<h1>Manutenções</h1>	
+						</div>
+					</a>
+				</div>
+			</div>
+
+			&ensp;
+
+			<div class="flip-card">
+				<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<i class="material-icons center">receipt_long</i>
+					</div>
+					<a href="/multas" class="flip-card-back">
+						<div>
+							<h1>Multas</h1>	
+						</div>
+					</a>
+				</div>
+			</div>
+
+			&ensp;
+
+			<div class="flip-card">
+				<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<i class="material-icons center">assignment</i>
+					</div>
+					<a href="/solicitacoes" class="flip-card-back">
+						<div>
+							<h1>Solicitações</h1>	
+						</div>
+					</a>
+				</div>
+			</div>
+
+			&ensp;
+
+			<div class="flip-card">
+				<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<i class="material-icons center">multiple_stop</i>
+					</div>
+					<a href="/locacoes" class="flip-card-back">
+						<div>
+							<h1>Locações</h1>	
+						</div>
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+{% endblock content %}
+
+<!-- scripts -->
+{% block scripts %}
+	<!-- <script src="/scripts/.js"></script> -->
+{% endblock scripts %}
