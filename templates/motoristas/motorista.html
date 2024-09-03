@@ -1,0 +1,58 @@
+<!-- importando conteudo base -->
+{% extends "layout.html" %}
+
+<!-- Title -->
+{% block title %}
+	<title>{{title}}</title>
+{% endblock title %}
+
+<!-- body --> 
+{% block content %}
+
+	{% block navbar %}
+		{% include "partials/navbar.html" %}
+	{% endblock navbar %}
+
+	<div class="container">
+		<div class="row">
+			<div class="col s12">
+				<table class="highlight">
+					<thead>
+                    
+						<tr>
+							<th>Nome</th>
+							<th>CPF</th>
+							<th>CNH</th>
+							<th>Categoria da CNH</th>
+							<th>Data de emissão</th>
+							<th>Data de validade</th>
+                            <th>Matrícula</th>
+						</tr>
+                    
+					</thead>
+
+					<tbody>
+						{% for motorista in motoristas %}
+						<tr>
+							<td>{{ motorista.nome }}</td>
+							<td>{{ motorista.cpf }}</td>
+							<td>{{ motorista.cnh }}</td>
+							<td>{{ motorista.categoria_cnh }}</td>
+							<td>{{ motorista.data_emissao }}</td>
+							<td>{{ motorista.data_validade }}</td>
+                            <td>{{ motorista.matricula }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}
+
+<!-- scripts -->
+{% block scripts %}
+	<script src="/scripts/motoristas.js"></script>
+{% endblock scripts %}
