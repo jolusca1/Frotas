@@ -8,3 +8,7 @@ class Motorista(models.Model):
     data_emissao = models.DateField(blank=False)
     data_validade = models.DateField(blank=False)
     categoria_cnh = models.CharField(max_length=11, blank=False, null=False)
+    
+    def __str__(self):
+        return f"{self.nome}"
+    
