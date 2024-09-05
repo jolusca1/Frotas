@@ -1,13 +1,10 @@
 {% extends "layout.html" %}
 
-<!-- Title -->
 {% block title %}
     <title>{{ title }}</title>
 {% endblock title %}
 
-<!-- body --> 
 {% block content %}
-
     {% block navbar %}
         {% include "partials/navbar.html" %}
     {% endblock navbar %}
@@ -27,9 +24,8 @@
                             <th>Matrícula</th>
                         </tr>
                     </thead>
-
                     <tbody>
-                        {% for motorista in motoristas %}
+                        {% for motorista in page_obj %}
                         <tr>
                             <td>{{ motorista.nome }}</td>
                             <td>{{ motorista.cpf }}</td>
@@ -42,16 +38,77 @@
                         {% endfor %}
                     </tbody>
                 </table>
-				<div class="col s12 right-align">
-					<a href="{% url 'cadastrar_motorista' %}" class="btn waves-effect waves-light green">Adicionar</a>
-				</div>
+
+                <!-- Paginação -->
+                <div class="pagination">
+                    <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                        <li class="waves-effect">
+                            <a href="?page=1">Primeira</a>
+                        </li>
+                        <li class="waves-effect">
+                            <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+                        </li>
+                        {% endif %}
+
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                            <li class="active"><a href="?page={{ num }}">{{ num }}</a></li>
+                            {% else %}
+                            <li class="waves-effect"><a href="?page={{ num }}">{{ num }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if page_obj.has_next %}
+                        <li class="waves-effect">
+                            <a href="?page={{ page_obj.next_page_number }}">Próxima</a>
+                        </li>
+                        <li class="waves-effect">
+                            <a href="?page={{ page_obj.paginator.num_pages }}">Última</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+
+                <div class="col s12 right-align">
+                    <!-- Botão para abrir o modal -->
+                    <a class="btn waves-effect waves-light green modal-trigger" href="#modalAdicionar">Adicionar</a>
+                </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Modal de Cadastro -->
+    <div id="modalAdicionar" class="modal">
+        <div class="modal-content">
+            <h4 style="color:#FFF">Cadastrar Motorista</h4>
+            <form action="{% url 'listar_motorista' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    {% for field in form.visible_fields %}
+                        <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
+                            <label style="color:#FFF; margin-bottom: 5px;" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                            </div>
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <button class="btn waves-effect waves-light green" type="submit">Cadastrar</button>
+                    <a href="#!" class="modal-close btn-flat">Cancelar</a>
+                </div>
+            </form>
         </div>
     </div>
 
 {% endblock content %}
 
-<!-- scripts -->
 {% block scripts %}
-    <script src="/scripts/motoristas.js"></script>
+    <!-- Inclua os scripts do Materialize CSS e inicialize o modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            M.Modal.init(elems);
+        });
+    </script>
 {% endblock scripts %}

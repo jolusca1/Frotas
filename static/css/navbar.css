@@ -1,10 +1,17 @@
-/* NAVBAR */
+NAVBAR
 nav.nav-extended .nav-content {
 	position: relative;
 	line-height: normal;
 	height: 41px;
 }
 
+.nav-wrapper a {
+	text-decoration: none;
+}
+
+.navbar {
+	justify-content: center;
+}
 
 nav.nav-extended .nav-wrapper {
 	min-height: 64px;

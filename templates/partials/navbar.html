@@ -1,8 +1,8 @@
 {# navbar #}
 <div class="navbar-fixed">
 
-	<nav class="nav-extended">
-		<div class="nav-wrapper blue darken-2">
+	<nav class="navbar navbar-dark bg-dark" style="height: 80px">
+		<div class="nav-wrapper">
 
 			<ul id="nav-mobile" class="left hide-on-med-and-down">
 				<li>
@@ -67,11 +67,11 @@
 		<div class="nav-content blue darken-2 center" id="title-bar">
 			<span class="nav-title">{{title}}</span>
 
-			<a class="btn-floating btn-large halfway-fab 
+			{% comment %} <a class="btn-floating btn-large halfway-fab 
 								waves-effect waves-light color-button pulse modal-trigger" 
 								href="#modal">
 				<i class="material-icons">filter_alt</i>
-			</a>
+			</a> {% endcomment %}
 		</div>
 
 	</nav>
