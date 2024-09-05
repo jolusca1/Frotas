@@ -1,5 +1,6 @@
 <!-- importando conteudo base -->
 {% extends "layout.html" %}
+{% load static %}
 
 <!-- Title -->
 {% block title %}
@@ -7,7 +8,7 @@
 {% endblock title %}
 
 {% block styles %}
-	<link rel="stylesheet" href="static/css/home.css">
+	<link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock styles %}
 
 <!-- body --> 
