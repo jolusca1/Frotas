@@ -1,7 +1,7 @@
 :root {
 	--primary-color: #1976D2;
 	--second-color: #fff;
-	--third-color: #fa815c;
+	--third-color: #343a40;
 	--primary-color-font: #062c52;
 	--danger-color: #da0101;
 }
@@ -23,7 +23,7 @@ td, th {
     .pagination {
         display: flex;
         justify-content: center;
-        margin: 20px 0;
+        margin: 10px 0;
     }
 
     .pagination li {
@@ -33,6 +33,7 @@ td, th {
     .pagination a {
         padding: 8px 16px;
         text-decoration: none;
+		border: 1px;
     }
 
     .pagination .active a {

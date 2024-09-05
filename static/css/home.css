@@ -64,6 +64,10 @@ body {
 	font-size: 26px;
 }
 
+.flip-card a {
+	text-decoration: none;
+}
+
 .material-icons {
 	font-family: 'Material Icons';
 	font-weight: normal;
